@@ -24,7 +24,7 @@ export class CartService {
     return newCart;
   }
 
-  async getCart(userId: string): Promise<CartDocument> {
+  async getCart(userId: string): Promise<any> {
     const cart = await this.cartModel.findOne({ userId });
     return cart;
   }
@@ -85,7 +85,7 @@ export class CartService {
 
     if (itemIndex > -1) {
       cart.items.splice(itemIndex, 1);
-      return cart.save()
+      return cart.save();
     }
   }
 }
